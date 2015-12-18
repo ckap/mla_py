@@ -1,30 +1,48 @@
-# this file is largely deprecated, currently
-# planned to be replaced by what is called "new.py"
+from checkvals import IntCheck
+from checkvals import ClauseCheck
+import data
 
+def QuesForm(qstring, astring, n, qval): 
+	print "%s" % qstring
+	print "%s" % astring
+	value = raw_input("  >")
+	value = IntCheck(value)
+	check = ClauseCheck(value, n, qval)
+	return value, check
 
-from chk import IntCheck
-from chk import ClauseCheck
+def QuesOuts(value, qval, out1, out2, out3, out4):
+	if value == 1:
+		newdata = getattr(data, out1)
+		qstring, astring, n, qval, out1, out2, out3, out4 = newdata().DataReport()
+		MakeQues(qval)
+	if value == 2:
+		newdata = getattr(data, out2)
+		qstring, astring, n, qval, out1, out2, out3, out4 = newdata().DataReport()
+		MakeQues(qval)
+	if value == 3:
+		newdata = getattr(data, out3)
+		qstring, astring, n, qval, out1, out2, out3, out4 = newdata().DataReport()
+		MakeQues(qval)
+	if value == 4:
+		newdata = getattr(data, out4)
+		qstring, astring, n, qval, out1, out2, out3, out4 = newdata().DataReport()
+		MakeQues(qval)
 
-print "MLA a001"
+def MakeQues(qval):
+	currentdata = getattr(data, qval)
+	qstring, astring, n, qval, out1, out2, out3, out4 = currentdata().DataReport()
+	value, check = QuesForm(qstring, astring, n, qval)
+	QuesOuts(value, qval, out1, out2, out3, out4)
+
+print "MLA a040"
 print "." * 15
 print """
 Welcome to the Milton Library Assistant.
-Please provide a query."""
-value = raw_input('''
-\t1 - Hello
-\t2 - What is this?
-\t3 - Can you hear me?
-\t4 - asdfiounbawefuo
-  >''')
-
-check = ClauseCheck(value, 2)
-print check
-if value == 1:
-	print "value is one"
-if value == 2:
-	print "value two received"
-if value == 3:
-	print "three"
-if value == 4:
-	print value
-	
+If you have visited before, please enter your save string.
+If you are a new visitor, please enter 'a'.
+"""
+value = raw_input("  >")
+if value == "a":
+	MakeQues("I")
+else:
+	MakeQues(value)

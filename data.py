@@ -1,10 +1,10 @@
 _data = {}
 class I:
-	def DataReport(arg): # not sure why this needs an arg
-		qstring = "This is the question"
+	def DataReport(self):
+		qstring = "I see you're new here. "
 		astring = "These are the answer choices."
 		n = 4
-		qval = 1
+		qval = "I"
 		out1 = "II"
 		out2 = "IG"
 		out3 = "IV"
@@ -12,11 +12,11 @@ class I:
 		return qstring, astring, n, qval, out1, out2, out3, out4
 
 class II:
-	def DataReport(arg):
+	def DataReport(self):
 		qstring = "You got class II"
 		astring = "I guess that means this strucutre works"
 		n = 4
-		qval = 112
+		qval = "II"
 		out1 = "III"
 		out2 = "IIG"
 		out3 = "IIV"
