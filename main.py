@@ -17,8 +17,6 @@ value = raw_input('''
 \t4 - asdfiounbawefuo
   >''')
 
-IntCheck(value)
-value = int(value)
 check = ClauseCheck(value, 2)
 print check
 if value == 1:
