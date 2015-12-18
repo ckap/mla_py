@@ -1,8 +1,11 @@
 _data = {}
 class I:
 	def DataReport(self):
-		qstring = "I see you're new here. "
-		astring = "These are the answer choices."
+		qstring = "\nWelcome, Guest.  Please enter a query."
+		astring = """\t 1 - Hello.
+\t 2 - Can you hear me?
+\t 3 - \\list
+\t 4 - afaskjhfskjfhsf"""
 		n = 4
 		qval = "I"
 		out1 = "II"
@@ -13,8 +16,8 @@ class I:
 
 class II:
 	def DataReport(self):
-		qstring = "You got class II"
-		astring = "I guess that means this strucutre works"
+		qstring = """\nHello, Guest.  Unfortunately, your query is quite limited.  Please elaborate."""
+		astring = """\t 1 - Elaborate? \n\t 2 - What is this thing? \n\t 3 - \\help \n\t 4 - How are you?"""
 		n = 4
 		qval = "II"
 		out1 = "III"

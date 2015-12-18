@@ -45,4 +45,10 @@ value = raw_input("  >")
 if value == "a":
 	MakeQues("I")
 else:
-	MakeQues(value)
+	while True:
+		try:
+			MakeQues(value)
+		except AttributeError:
+			print "Invalid string '%s'" % value
+			print "Please retry your save string or restart the program."
+			value = raw_input("  >")
